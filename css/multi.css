@@ -1,0 +1,60 @@
+header {
+    max-width: 1200px;
+
+    margin: 40px auto;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--large-size-fluid);
+
+    max-width: 1200px;
+
+    margin: 20px var(--small-size-fluid);
+}
+
+article img {
+    border-radius: 8px;
+
+    box-shadow: var(--box-shadow);
+}
+
+.featured {
+    /* the featured article stretch 3 columns */
+    grid-column: span 3;
+
+    /* the item inside the grid can also be a grid */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--medium-size-fluid);
+    align-items: center;
+
+    padding-bottom: var(--medium-size-fluid);
+
+    border-bottom: 1px solid var(--accent);
+}
+
+article p,
+article h3 {
+    margin: var(--small-size-fluid) 10px;
+}
+
+@media screen and (max-width: 980px) {
+    article {
+        grid-column: span 3;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--medium-size-fluid);
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* removing the grid properties from the articles */
+    article,
+    .featured {
+        display: block;
+    }
+}

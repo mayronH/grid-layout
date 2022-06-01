@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap");
+
+:root {
+    --text: #fff;
+    --bg-body: #11121d;
+    --bg-lighter: #1e2130;
+    --text-grey: #979bb0;
+    --accent: #e53265;
+
+    --small-size-fluid: clamp(0.5rem, 3vw, 2rem);
+    --medium-size-fluid: clamp(2rem, 4vw, 2.5rem);
+    --large-size-fluid: clamp(3rem, 6vw, 3.75rem);
+
+    --box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* RESET */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Main Components */
+html {
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 1rem;
+
+    background-color: var(--bg-lighter);
+}
+
+body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+
+    background-color: var(--accent);
+
+    border: 2px solid var(--bg-lighter);
+}
+
+body {
+    font-family: "Poppins";
+    color: var(--text);
+
+    background-color: var(--bg-body);
+}
+
+.content {
+    display: grid;
+    place-items: center;
+
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+a {
+    color: var(--accent);
+}
+
+a {
+    text-decoration: none;
+    font-weight: 200;
+}
+
+/* Grid Basic */
+
+.grid-container {
+    display: grid;
+    /* divide the grid in 3 columns with 300px each */
+    /* grid-template-columns: 300px 300px 300px; */
+    /* divide the grid in 6 columns each one with 1 fraction of the total */
+    grid-template-columns: repeat(6, 1fr);
+    /* 3 rows, each one with a different height */
+    grid-template-rows: 80px 140px 200px;
+    gap: var(--small-size-fluid);
+
+    /* the default behaviour of grid */
+    /* the items stretch to occupy all space available on the column */
+    justify-items: stretch;
+    /* all items will be on the end of the column that they are asign to */
+    /* justify-items: end; */
+    /* the same but on the start */
+    /* justify-items: start; */
+    /* the same but on the center */
+    /* justify-items: center; */
+
+    /* the default behaviour */
+    /* the items stretch to occupy all space available on the row */
+    align-items: stretch;
+
+    max-width: 480px;
+
+    margin: 0 var(--small-size-fluid);
+
+    background-color: var(--bg-lighter);
+}
+
+.grid-container > div {
+    text-align: center;
+
+    padding: 20px;
+
+    background-color: var(--bg-body);
+
+    border: 1px solid var(--accent);
+}
+
+/* the first div inside the grid-container */
+.grid-container > div:nth-child(1) {
+    /* how the column will be inside the grid-container */
+    /* start on the first grid line and span 2 columns(width) */
+    grid-column: 1 / span 2;
+}
+
+.grid-container > div:nth-child(2) {
+    /* will start in the next available position(3) and span 3 columns */
+    grid-column: span 3;
+}
+
+.grid-container > div:nth-child(3) {
+    grid-column: span 1;
+}
+
+.grid-container > div:nth-child(4) {
+    /* start on the 2nd grid line and end on the 6th */
+    grid-column: 2 / 6;
+
+    /* we can change individual grid items with -self */
+    align-self: flex-end;
+}
+
+.grid-container > div:nth-child(5) {
+    /* if there no room to span 3, they shift to the next row */
+    grid-column: span 3;
+}
+
+.grid-container > div:nth-child(6) {
+    grid-column: span 3;
+}
