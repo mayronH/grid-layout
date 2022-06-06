@@ -1,0 +1,105 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--small-size-fluid);
+
+    width: 100%;
+}
+
+header {
+    padding: var(--small-size-fluid) var(--medium-size-fluid);
+
+    background-color: var(--bg-lighter);
+
+    align-items: center;
+}
+
+header h1 {
+    grid-column: span 6;
+}
+
+header nav {
+    grid-column: span 6;
+    justify-self: flex-end;
+
+    display: flex;
+    gap: var(--x-small-size-fluid);
+}
+
+.content main {
+    max-width: 1280px;
+
+    margin: var(--large-size-fluid) auto;
+    padding: var(--small-size-fluid);
+}
+
+.content p {
+    line-height: 2rem;
+
+    margin-bottom: var(--x-small-size-fluid);
+}
+
+.content h2,
+.content h3 {
+    margin-bottom: var(--small-size-fluid);
+}
+
+.welcome,
+.services {
+    grid-column: span 12;
+
+    padding-bottom: var(--small-size-fluid);
+}
+
+.welcome img {
+    grid-column: span 6;
+
+    border-radius: 8px;
+}
+
+.welcome .welcome-card {
+    /* start on grid line 8 and span 5 */
+    /* skip 1 column */
+    grid-column: 8 / span 5;
+}
+
+.services h2 {
+    grid-column: span 12;
+}
+
+.services .card {
+    grid-column: span 4;
+
+    background-color: var(--bg-lighter);
+
+    border-radius: 8px;
+
+    padding: var(--small-size-fluid);
+
+    box-shadow: var(--box-shadow);
+}
+
+@media screen and (max-width: 768px) {
+    .welcome img {
+        /* skip 1 column and occupy 10 */
+        /* let one column on each side */
+        grid-column: 2 / span 10;
+    }
+
+    .welcome .welcome-card {
+        /* let 2 columns on each side */
+        grid-column: 3 / span 8;
+
+        text-align: center;
+    }
+
+    .services h2 {
+        grid-column: 3 / span 8;
+
+        text-align: center;
+    }
+
+    .services .card {
+        grid-column: 3 / span 8;
+    }
+}
