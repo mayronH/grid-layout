@@ -7,6 +7,7 @@
     --text-grey: #979bb0;
     --accent: #e53265;
 
+    --x-small-size-fluid: clamp(0.25rem, 1.5vw, 0.75rem);
     --small-size-fluid: clamp(0.5rem, 3vw, 2rem);
     --medium-size-fluid: clamp(2rem, 4vw, 2.5rem);
     --large-size-fluid: clamp(3rem, 6vw, 3.75rem);
@@ -78,6 +79,133 @@ a {
 a {
     text-decoration: none;
     font-weight: 200;
+}
+
+.home {
+    position: fixed;
+    bottom: var(--small-size-fluid);
+    right: 0;
+
+    background-color: var(--accent);
+    color: var(--text);
+
+    padding: var(--x-small-size-fluid);
+}
+
+/* HEADER */
+
+.header {
+    padding: 12px 25px;
+
+    background-color: var(--bg-lighter);
+    border-bottom: 1px solid var(--accent);
+
+    width: 100%;
+
+    /* position: fixed;
+    top: 0;
+    z-index: 99; */
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--text);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-links {
+    /* position absolute for the mobile */
+    position: absolute;
+    top: 1rem;
+    /* left: 0, right:0 makes the ul occupy the entire width of the screen */
+    left: 0;
+    right: 0;
+    /* the entire nav have z-index of 99 but the links will be bellow everything else inside of the parent(nav) */
+    z-index: -1;
+
+    background-color: var(--bg-lighter);
+
+    padding: 1.5rem;
+
+    border-bottom: 2px solid var(--accent);
+
+    /* translate3d have better performance, if the browser have GPU acceleration, will use it */
+    /* translate3d(x, y, z) */
+    transform: translate3d(0, -200%, 0);
+
+    transition: transform 0.2s cubic-bezier(0.64, 0.04, 0.26, 0.87);
+
+    list-style: none;
+
+    text-align: center;
+}
+
+.btn-menu {
+    cursor: pointer;
+
+    color: var(--accent);
+
+    background-color: transparent;
+    border: none;
+
+    /* center the svg */
+    display: grid;
+    place-items: center;
+
+    /* horizontal padding */
+    padding-inline: 1rem;
+}
+
+.btn-menu[aria-expanded="true"] + .nav-links {
+    transform: translate3d(0, 0, 0);
+}
+
+.nav-links li {
+    display: block;
+
+    padding: 5px 0;
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .btn-menu {
+        display: none;
+    }
+
+    .nav-links {
+        /* reset the position absolute */
+        position: static;
+
+        /* make the menu visible */
+        transform: translate3d(0, 0, 0);
+
+        /* reset every change in the nav-links for desktop */
+        border-bottom: 0;
+        z-index: 0;
+        padding: 0;
+        inset: 0;
+        background-color: transparent;
+    }
+
+    .nav-links li {
+        display: inline;
+
+        padding: 0px 5px;
+    }
+
+    .nav-link {
+        width: initial;
+    }
 }
 
 /* Grid Basic */

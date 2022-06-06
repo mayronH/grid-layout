@@ -2,13 +2,38 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        
-        <link rel="stylesheet" href="css/main.css" />
+        <title>Grid Basic</title>
     </head>
     <body>
+        <header>
+            <nav class="header">
+                <a href="/index.html" class="logo">Grid Layouts</a>
+                <div class="nav-wrapper">
+                    <button class="btn-menu" aria-expanded="false" aria-controls="menu" aria-label="open mobile nav">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <ul class="nav-links" id="menu" role="menubar">
+                        <li role="none"><a role="menuitem" class="nav-link" href="/layouts/multi-column.html">Multi-Column</a></li>
+                        <li role="none"><a role="menuitem" class="nav-link" href="/layouts/holygrail.html">Holy Grail</a></li>
+                        <li role="none"><a role="menuitem" class="nav-link" href="/layouts/masonry.html">Masonry</a></li>
+                        <li role="none"><a role="menuitem" class="nav-link" href="/layouts/portfolio.html">Full Width</a></li>
+                        <li role="none"><a role="menuitem" class="nav-link" href="/layouts/twelve-columns.html">12 Column</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
         <main class="content">
             <div class="grid-container">
                 <div>1</div>
@@ -19,5 +44,7 @@
                 <div>6</div>
             </div>
         </main>
+
+        <script type="module" src="/main.js"></script>
     </body>
 </html>
